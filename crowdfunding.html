@@ -459,6 +459,32 @@
 
     /* ── GUMROAD override ── */
     .gumroad-button { display: none !important; }
+
+    /* ── LANG STRIP clickable ── */
+    .lang-strip span {
+      cursor: pointer;
+      transition: border-color .18s, color .18s;
+    }
+    .lang-strip span:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      header { padding: 48px 16px 36px; }
+      .tagline { font-size: .95rem; }
+      .tiers { gap: 12px; padding: 0 16px; margin-top: 48px; }
+      .tier { width: calc(50% - 6px); padding: 24px 14px 22px; }
+      .tier--core { width: 100%; }
+      .tier-price { font-size: 2rem; }
+      .sana-section { gap: 24px; margin-top: 48px; }
+      .sana-info { text-align: center; }
+      .lang-flags { justify-content: center; }
+      .lang-flag-btn { padding: 8px 12px; }
+      .total-block strong { font-size: 1.8rem; }
+      .letter-note { margin-inline: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -971,19 +997,19 @@ function toggleSound() {
 </div>
 
 <div class="lang-strip">
-  <span>🇷🇺 Русский</span>
-  <span>🇰🇿 Қазақша</span>
-  <span>🇺🇸 English</span>
-  <span>🇨🇳 中文</span>
-  <span>🇸🇦 العربية</span>
-  <span>🇩🇪 Deutsch</span>
-  <span>🇫🇷 Français</span>
-  <span>🇪🇸 Español</span>
-  <span>🇹🇷 Türkçe</span>
-  <span>🇮🇳 हिन्दी</span>
-  <span>🇯🇵 日本語</span>
-  <span>🇧🇷 Português</span>
-  <span>🇮🇩 Indonesia</span>
+  <span data-code="ru">🇷🇺 Русский</span>
+  <span data-code="kz">🇰🇿 Қазақша</span>
+  <span data-code="en">🇺🇸 English</span>
+  <span data-code="zh">🇨🇳 中文</span>
+  <span data-code="ar">🇸🇦 العربية</span>
+  <span data-code="de">🇩🇪 Deutsch</span>
+  <span data-code="fr">🇫🇷 Français</span>
+  <span data-code="es">🇪🇸 Español</span>
+  <span data-code="tr">🇹🇷 Türkçe</span>
+  <span data-code="hi">🇮🇳 हिन्दी</span>
+  <span data-code="jp">🇯🇵 日本語</span>
+  <span data-code="pt">🇧🇷 Português</span>
+  <span data-code="id">🇮🇩 Indonesia</span>
 </div>
 
 <!-- FOOTER -->
@@ -999,6 +1025,46 @@ function toggleSound() {
     <a href="https://sun-agi.com">← Back to main</a>
   </p>
 </footer>
+
+<script>
+// ── PIXEL EVENTS: клик по Donate → InitiateCheckout (Meta + TikTok) ──────────
+document.querySelectorAll('.tiers .btn').forEach(a => {
+  a.addEventListener('click', () => {
+    const m = a.href.match(/paf-(\d+)/);
+    const val = m ? parseInt(m[1], 10) : 0;
+    try {
+      if (window.fbq) fbq('track', 'InitiateCheckout',
+        { value: val, currency: 'USD', content_name: 'PAF-' + val });
+      if (window.ttq) ttq.track('InitiateCheckout',
+        { value: val, currency: 'USD', content_id: 'paf-' + val });
+    } catch (e) {}
+  });
+});
+
+// ── LANG STRIP (внизу): клик → перевод страницы + скролл к SANA ──────────────
+document.querySelectorAll('.lang-strip span[data-code]').forEach(s => {
+  s.addEventListener('click', () => {
+    const code = s.getAttribute('data-code');
+    setLang(code);
+    const btn = document.querySelector(
+      `.lang-flag-btn[onclick*="_${code.toUpperCase()}.mp4"]`
+    );
+    if (btn) {
+      document.querySelectorAll('.lang-flag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const m = btn.getAttribute('onclick').match(/'(SANA_avatar_[A-Z]+\.mp4)'/);
+      const v = document.getElementById('sanaVideo');
+      if (m && !v.src.includes(m[1])) {
+        v.src = m[1]; v.load();
+        // если видео уже играло — продолжаем на новом языке со звуком
+        const ov = document.getElementById('playOverlay');
+        if (ov && ov.style.display === 'none') playWithSound();
+      }
+    }
+    document.querySelector('.sana-section').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
 
 </body>
 </html>
