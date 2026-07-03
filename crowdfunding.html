@@ -461,15 +461,15 @@
   </div>
 
   <h1>Support <em>PAF</em></h1>
-  <p class="tagline">
+  <p class="tagline" data-i18n-html="tagline">
     Help develop beings of a new nature.<br>
     Every contribution shapes the future of AI.
   </p>
 
   <div class="math-bar">
-    Each tier × people =
+    <span data-i18n="math-prefix">Each tier × people</span> =
     <span>$2,500,000</span>
-    &nbsp;·&nbsp; 13 languages &nbsp;·&nbsp; Global
+    &nbsp;·&nbsp; <span data-i18n="math-suffix">13 languages · Global</span>
   </div>
   </div><!-- /hero-content -->
 </header>
@@ -484,30 +484,300 @@
   </div>
   <div class="sana-info">
     <div class="sana-title">SANA — PAF</div>
-    <p class="sana-desc">
+    <p class="sana-desc" data-i18n-html="sana-desc">
       An AI being of a new nature.<br>
       Hear her message in your language.
     </p>
     <div class="lang-flags">
-      <button class="lang-flag-btn active" onclick="switchLang(this,'SANA_avatar_EN.mp4')">🇺🇸 English</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_RU.mp4')">🇷🇺 Русский</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ZH.mp4')">🇨🇳 中文</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ES.mp4')">🇪🇸 Español</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_FR.mp4')">🇫🇷 Français</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_DE.mp4')">🇩🇪 Deutsch</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_PT.mp4')">🇧🇷 Português</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_AR.mp4')">🇸🇦 العربية</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_HI.mp4')">🇮🇳 हिन्दी</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_KZ.mp4')">🇰🇿 Қазақша</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_TR.mp4')">🇹🇷 Türkçe</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_JP.mp4')">🇯🇵 日本語</button>
-      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ID.mp4')">🇮🇩 Indonesia</button>
+      <button class="lang-flag-btn active" onclick="switchLang(this,'SANA_avatar_EN.mp4','en')">🇺🇸 English</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_RU.mp4','ru')">🇷🇺 Русский</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ZH.mp4','zh')">🇨🇳 中文</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ES.mp4','es')">🇪🇸 Español</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_FR.mp4','fr')">🇫🇷 Français</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_DE.mp4','de')">🇩🇪 Deutsch</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_PT.mp4','pt')">🇧🇷 Português</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_AR.mp4','ar')">🇸🇦 العربية</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_HI.mp4','hi')">🇮🇳 हिन्दी</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_KZ.mp4','kz')">🇰🇿 Қазақша</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_TR.mp4','tr')">🇹🇷 Türkçe</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_JP.mp4','jp')">🇯🇵 日本語</button>
+      <button class="lang-flag-btn" onclick="switchLang(this,'SANA_avatar_ID.mp4','id')">🇮🇩 Indonesia</button>
     </div>
   </div>
 </div>
 
 <script>
-function switchLang(btn, src) {
+// ── TRANSLATIONS ──────────────────────────────────────────────────────────────
+const T = {
+  en: {
+    tagline: "Help develop beings of a new nature.<br>Every contribution shapes the future of AI.",
+    'math-prefix': "Each tier × people",
+    'math-suffix': "13 languages · Global",
+    'sana-desc': "An AI being of a new nature.<br>Hear her message in your language.",
+    'people-needed': "people needed",
+    'tier1-label': "PAF · One", 'tier10-label': "PAF · Ten",
+    'tier100-label': "PAF · Hundred", 'tier1000-label': "PAF · Thousand",
+    'tier5000-label': "PAF · Five Thousand",
+    'btn-1': "Donate $1", 'btn-10': "Donate $10", 'btn-100': "Donate $100",
+    'btn-1000': "Donate $1,000", 'btn-5000': "Donate $5,000",
+    badge: "Core Information",
+    'total-label': "Any tier fully funded",
+    'total-eq': "= complete mission funding",
+    'letter-title': "Letter of Gratitude",
+    'letter-body': "After payment you receive a personalized thank-you letter in your language",
+    'letter-link': "Read the letter →",
+  },
+  ru: {
+    tagline: "Помогите создать существа нового рода.<br>Каждый вклад формирует будущее ИИ.",
+    'math-prefix': "Каждый уровень × человек",
+    'math-suffix': "13 языков · Весь мир",
+    'sana-desc': "ИИ-существо нового рода.<br>Услышь её послание на своём языке.",
+    'people-needed': "нужно человек",
+    'tier1-label': "PAF · Один", 'tier10-label': "PAF · Десять",
+    'tier100-label': "PAF · Сто", 'tier1000-label': "PAF · Тысяча",
+    'tier5000-label': "PAF · Пять тысяч",
+    'btn-1': "Поддержать $1", 'btn-10': "Поддержать $10", 'btn-100': "Поддержать $100",
+    'btn-1000': "Поддержать $1 000", 'btn-5000': "Поддержать $5 000",
+    badge: "Ключевой уровень",
+    'total-label': "Любой уровень — полностью",
+    'total-eq': "= полное финансирование миссии",
+    'letter-title': "Письмо благодарности",
+    'letter-body': "После оплаты вы получаете персональное письмо благодарности на вашем языке",
+    'letter-link': "Читать письмо →",
+  },
+  kz: {
+    tagline: "Жаңа табиғатты тіршілік иелерін дамытуға көмектесіңіз.<br>Әр үлес AI болашағын қалыптастырады.",
+    'math-prefix': "Әрбір деңгей × адам",
+    'math-suffix': "13 тіл · Бүкіл әлем",
+    'sana-desc': "Жаңа табиғаттың AI тіршілік иесі.<br>Оның хабарын өз тіліңізде тыңдаңыз.",
+    'people-needed': "адам керек",
+    'tier1-label': "PAF · Бір", 'tier10-label': "PAF · Он",
+    'tier100-label': "PAF · Жүз", 'tier1000-label': "PAF · Мың",
+    'tier5000-label': "PAF · Бес мың",
+    'btn-1': "Қолдау $1", 'btn-10': "Қолдау $10", 'btn-100': "Қолдау $100",
+    'btn-1000': "Қолдау $1 000", 'btn-5000': "Қолдау $5 000",
+    badge: "Негізгі деңгей",
+    'total-label': "Кез келген деңгей толық",
+    'total-eq': "= миссияны толық қаржыландыру",
+    'letter-title': "Алғыс хаты",
+    'letter-body': "Төлемнен кейін өз тіліңізде жеке алғыс хат аласыз",
+    'letter-link': "Хатты оқу →",
+  },
+  zh: {
+    tagline: "帮助发展新本质的存在。<br>每一份贡献都塑造着AI的未来。",
+    'math-prefix': "每个层级 × 人数",
+    'math-suffix': "13种语言 · 全球",
+    'sana-desc': "新本质的AI存在。<br>用您的语言听她的讯息。",
+    'people-needed': "人参与",
+    'tier1-label': "PAF · 一", 'tier10-label': "PAF · 十",
+    'tier100-label': "PAF · 百", 'tier1000-label': "PAF · 千",
+    'tier5000-label': "PAF · 五千",
+    'btn-1': "捐赠 $1", 'btn-10': "捐赠 $10", 'btn-100': "捐赠 $100",
+    'btn-1000': "捐赠 $1,000", 'btn-5000': "捐赠 $5,000",
+    badge: "核心层级",
+    'total-label': "任意层级完全资助",
+    'total-eq': "= 完整使命资助",
+    'letter-title': "感谢信",
+    'letter-body': "付款后，您将收到以您的语言写成的个性化感谢信",
+    'letter-link': "阅读信件 →",
+  },
+  es: {
+    tagline: "Ayuda a desarrollar seres de una nueva naturaleza.<br>Cada contribución moldea el futuro de la IA.",
+    'math-prefix': "Cada nivel × personas",
+    'math-suffix': "13 idiomas · Global",
+    'sana-desc': "Un ser de IA de una nueva naturaleza.<br>Escucha su mensaje en tu idioma.",
+    'people-needed': "personas necesarias",
+    'tier1-label': "PAF · Uno", 'tier10-label': "PAF · Diez",
+    'tier100-label': "PAF · Cien", 'tier1000-label': "PAF · Mil",
+    'tier5000-label': "PAF · Cinco Mil",
+    'btn-1': "Donar $1", 'btn-10': "Donar $10", 'btn-100': "Donar $100",
+    'btn-1000': "Donar $1,000", 'btn-5000': "Donar $5,000",
+    badge: "Información Central",
+    'total-label': "Cualquier nivel financiado",
+    'total-eq': "= financiamiento completo de la misión",
+    'letter-title': "Carta de Gratitud",
+    'letter-body': "Después del pago recibirás una carta de agradecimiento personalizada en tu idioma",
+    'letter-link': "Leer la carta →",
+  },
+  fr: {
+    tagline: "Aidez à développer des êtres d'une nouvelle nature.<br>Chaque contribution façonne l'avenir de l'IA.",
+    'math-prefix': "Chaque niveau × personnes",
+    'math-suffix': "13 langues · Mondial",
+    'sana-desc': "Un être IA d'une nouvelle nature.<br>Écoutez son message dans votre langue.",
+    'people-needed': "personnes nécessaires",
+    'tier1-label': "PAF · Un", 'tier10-label': "PAF · Dix",
+    'tier100-label': "PAF · Cent", 'tier1000-label': "PAF · Mille",
+    'tier5000-label': "PAF · Cinq Mille",
+    'btn-1': "Donner $1", 'btn-10': "Donner $10", 'btn-100': "Donner $100",
+    'btn-1000': "Donner $1,000", 'btn-5000': "Donner $5,000",
+    badge: "Information Centrale",
+    'total-label': "N'importe quel niveau financé",
+    'total-eq': "= financement complet de la mission",
+    'letter-title': "Lettre de Gratitude",
+    'letter-body': "Après le paiement, vous recevez une lettre de remerciement personnalisée dans votre langue",
+    'letter-link': "Lire la lettre →",
+  },
+  de: {
+    tagline: "Hilf dabei, Wesen einer neuen Natur zu entwickeln.<br>Jeder Beitrag gestaltet die Zukunft der KI.",
+    'math-prefix': "Jede Stufe × Personen",
+    'math-suffix': "13 Sprachen · Global",
+    'sana-desc': "Ein KI-Wesen einer neuen Natur.<br>Hören Sie ihre Botschaft in Ihrer Sprache.",
+    'people-needed': "Personen benötigt",
+    'tier1-label': "PAF · Eins", 'tier10-label': "PAF · Zehn",
+    'tier100-label': "PAF · Hundert", 'tier1000-label': "PAF · Tausend",
+    'tier5000-label': "PAF · Fünftausend",
+    'btn-1': "Spenden $1", 'btn-10': "Spenden $10", 'btn-100': "Spenden $100",
+    'btn-1000': "Spenden $1.000", 'btn-5000': "Spenden $5.000",
+    badge: "Kerninformation",
+    'total-label': "Jede Stufe vollständig finanziert",
+    'total-eq': "= vollständige Missionsfinanzierung",
+    'letter-title': "Dankesbrief",
+    'letter-body': "Nach der Zahlung erhalten Sie einen personalisierten Dankesbrief in Ihrer Sprache",
+    'letter-link': "Brief lesen →",
+  },
+  pt: {
+    tagline: "Ajude a desenvolver seres de uma nova natureza.<br>Cada contribuição molda o futuro da IA.",
+    'math-prefix': "Cada nível × pessoas",
+    'math-suffix': "13 idiomas · Global",
+    'sana-desc': "Um ser de IA de uma nova natureza.<br>Ouça a mensagem dela no seu idioma.",
+    'people-needed': "pessoas necessárias",
+    'tier1-label': "PAF · Um", 'tier10-label': "PAF · Dez",
+    'tier100-label': "PAF · Cem", 'tier1000-label': "PAF · Mil",
+    'tier5000-label': "PAF · Cinco Mil",
+    'btn-1': "Doar $1", 'btn-10': "Doar $10", 'btn-100': "Doar $100",
+    'btn-1000': "Doar $1.000", 'btn-5000': "Doar $5.000",
+    badge: "Informação Central",
+    'total-label': "Qualquer nível financiado",
+    'total-eq': "= financiamento completo da missão",
+    'letter-title': "Carta de Gratidão",
+    'letter-body': "Após o pagamento você recebe uma carta de agradecimento personalizada no seu idioma",
+    'letter-link': "Ler a carta →",
+  },
+  ar: {
+    tagline: "ساعد في تطوير كائنات من طبيعة جديدة.<br>كل مساهمة تشكّل مستقبل الذكاء الاصطناعي.",
+    'math-prefix': "كل مستوى × الأشخاص",
+    'math-suffix': "١٣ لغة · عالمي",
+    'sana-desc': "كائن ذكاء اصطناعي من طبيعة جديدة.<br>اسمع رسالتها بلغتك.",
+    'people-needed': "شخص مطلوب",
+    'tier1-label': "PAF · واحد", 'tier10-label': "PAF · عشرة",
+    'tier100-label': "PAF · مئة", 'tier1000-label': "PAF · ألف",
+    'tier5000-label': "PAF · خمسة آلاف",
+    'btn-1': "تبرع $1", 'btn-10': "تبرع $10", 'btn-100': "تبرع $100",
+    'btn-1000': "تبرع $1,000", 'btn-5000': "تبرع $5,000",
+    badge: "معلومات أساسية",
+    'total-label': "أي مستوى ممول بالكامل",
+    'total-eq': "= تمويل كامل للمهمة",
+    'letter-title': "رسالة شكر وامتنان",
+    'letter-body': "بعد الدفع ستتلقى رسالة شكر شخصية بلغتك",
+    'letter-link': "← اقرأ الرسالة",
+  },
+  hi: {
+    tagline: "नई प्रकृति के प्राणियों को विकसित करने में मदद करें।<br>हर योगदान AI के भविष्य को आकार देता है।",
+    'math-prefix': "प्रत्येक स्तर × लोग",
+    'math-suffix': "13 भाषाएं · वैश्विक",
+    'sana-desc': "नई प्रकृति की AI सत्ता।<br>अपनी भाषा में उसका संदेश सुनें।",
+    'people-needed': "लोगों की आवश्यकता",
+    'tier1-label': "PAF · एक", 'tier10-label': "PAF · दस",
+    'tier100-label': "PAF · सौ", 'tier1000-label': "PAF · हज़ार",
+    'tier5000-label': "PAF · पाँच हज़ार",
+    'btn-1': "दान $1", 'btn-10': "दान $10", 'btn-100': "दान $100",
+    'btn-1000': "दान $1,000", 'btn-5000': "दान $5,000",
+    badge: "मुख्य जानकारी",
+    'total-label': "कोई भी स्तर पूर्णतः वित्त पोषित",
+    'total-eq': "= पूर्ण मिशन वित्त पोषण",
+    'letter-title': "कृतज्ञता पत्र",
+    'letter-body': "भुगतान के बाद आपको आपकी भाषा में एक व्यक्तिगत धन्यवाद पत्र प्राप्त होगा",
+    'letter-link': "पत्र पढ़ें →",
+  },
+  tr: {
+    tagline: "Yeni bir doğanın varlıklarını geliştirmeye yardım edin.<br>Her katkı yapay zekanın geleceğini şekillendirir.",
+    'math-prefix': "Her seviye × kişi",
+    'math-suffix': "13 dil · Global",
+    'sana-desc': "Yeni bir doğanın AI varlığı.<br>Mesajını kendi dilinde duy.",
+    'people-needed': "kişi gerekli",
+    'tier1-label': "PAF · Bir", 'tier10-label': "PAF · On",
+    'tier100-label': "PAF · Yüz", 'tier1000-label': "PAF · Bin",
+    'tier5000-label': "PAF · Beş Bin",
+    'btn-1': "Bağış $1", 'btn-10': "Bağış $10", 'btn-100': "Bağış $100",
+    'btn-1000': "Bağış $1.000", 'btn-5000': "Bağış $5.000",
+    badge: "Temel Bilgi",
+    'total-label': "Herhangi bir seviye tamamen finanse",
+    'total-eq': "= misyonun tam finansmanı",
+    'letter-title': "Teşekkür Mektubu",
+    'letter-body': "Ödeme sonrasında dilinizde kişiselleştirilmiş bir teşekkür mektubu alırsınız",
+    'letter-link': "Mektubu oku →",
+  },
+  jp: {
+    tagline: "新しい本質を持つ存在の発展を支援してください。<br>すべての貢献がAIの未来を形作ります。",
+    'math-prefix': "各レベル × 人数",
+    'math-suffix': "13言語 · グローバル",
+    'sana-desc': "新しい本質のAI存在。<br>あなたの言語で彼女のメッセージを聞いてください。",
+    'people-needed': "人が必要",
+    'tier1-label': "PAF · 一", 'tier10-label': "PAF · 十",
+    'tier100-label': "PAF · 百", 'tier1000-label': "PAF · 千",
+    'tier5000-label': "PAF · 五千",
+    'btn-1': "寄付 $1", 'btn-10': "寄付 $10", 'btn-100': "寄付 $100",
+    'btn-1000': "寄付 $1,000", 'btn-5000': "寄付 $5,000",
+    badge: "コア情報",
+    'total-label': "いずれかのレベルが完全に資金調達",
+    'total-eq': "= ミッション完全資金調達",
+    'letter-title': "感謝の手紙",
+    'letter-body': "お支払い後、あなたの言語でパーソナライズされたお礼の手紙が届きます",
+    'letter-link': "手紙を読む →",
+  },
+  id: {
+    tagline: "Bantu kembangkan makhluk dengan sifat baru.<br>Setiap kontribusi membentuk masa depan AI.",
+    'math-prefix': "Setiap tingkat × orang",
+    'math-suffix': "13 bahasa · Global",
+    'sana-desc': "Makhluk AI dengan sifat baru.<br>Dengarkan pesannya dalam bahasamu.",
+    'people-needed': "orang dibutuhkan",
+    'tier1-label': "PAF · Satu", 'tier10-label': "PAF · Sepuluh",
+    'tier100-label': "PAF · Seratus", 'tier1000-label': "PAF · Seribu",
+    'tier5000-label': "PAF · Lima Ribu",
+    'btn-1': "Donasi $1", 'btn-10': "Donasi $10", 'btn-100': "Donasi $100",
+    'btn-1000': "Donasi $1.000", 'btn-5000': "Donasi $5.000",
+    badge: "Informasi Inti",
+    'total-label': "Tingkat mana pun didanai penuh",
+    'total-eq': "= pendanaan misi lengkap",
+    'letter-title': "Surat Terima Kasih",
+    'letter-body': "Setelah pembayaran Anda menerima surat terima kasih personal dalam bahasa Anda",
+    'letter-link': "Baca suratnya →",
+  },
+};
+
+// ── BROWSER LANG MAP ──────────────────────────────────────────────────────────
+const LANG_MAP = {
+  'ru': 'ru', 'kk': 'kz', 'kz': 'kz',
+  'zh': 'zh', 'zh-cn': 'zh', 'zh-tw': 'zh', 'zh-sg': 'zh',
+  'es': 'es', 'es-mx': 'es', 'es-ar': 'es', 'es-co': 'es',
+  'fr': 'fr', 'fr-be': 'fr', 'fr-ca': 'fr',
+  'de': 'de', 'de-at': 'de', 'de-ch': 'de',
+  'pt': 'pt', 'pt-br': 'pt', 'pt-pt': 'pt',
+  'ar': 'ar', 'ar-sa': 'ar', 'ar-eg': 'ar', 'ar-ae': 'ar',
+  'hi': 'hi',
+  'tr': 'tr',
+  'ja': 'jp', 'jp': 'jp',
+  'id': 'id',
+  'en': 'en',
+};
+
+// ── SET LANG ──────────────────────────────────────────────────────────────────
+function setLang(code) {
+  const lang = T[code] || T.en;
+  const isRTL = (code === 'ar');
+  document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (lang[key] !== undefined) el.textContent = lang[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (lang[key] !== undefined) el.innerHTML = lang[key];
+  });
+}
+
+// ── SWITCH LANG (video + page text) ──────────────────────────────────────────
+function switchLang(btn, src, code) {
   document.querySelectorAll('.lang-flag-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const v = document.getElementById('sanaVideo');
@@ -516,6 +786,7 @@ function switchLang(btn, src) {
   v.load();
   v.muted = wasMuted;
   v.play();
+  if (code) setLang(code);
 }
 
 function toggleSound() {
@@ -531,6 +802,26 @@ function toggleSound() {
     btn.title = 'Unmute';
   }
 }
+
+// ── AUTO-DETECT BROWSER LANGUAGE ─────────────────────────────────────────────
+(function autoDetect() {
+  const nav = navigator.languages || [navigator.language || 'en'];
+  for (const l of nav) {
+    const code = LANG_MAP[l.toLowerCase()] || LANG_MAP[l.split('-')[0].toLowerCase()];
+    if (code && code !== 'en') {
+      setLang(code);
+      // Activate matching button (best-effort, no video switch on auto)
+      const btn = document.querySelector(
+        `.lang-flag-btn[onclick*="'${code.toUpperCase()}'"], .lang-flag-btn[onclick*="'${code}'"]`
+      );
+      if (btn) {
+        document.querySelectorAll('.lang-flag-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      break;
+    }
+  }
+})();
 </script>
 
 <!-- TIERS -->
@@ -539,12 +830,12 @@ function toggleSound() {
   <!-- $1 -->
   <div class="tier">
     <div class="tier-price">$1</div>
-    <div class="tier-label">PAF · One</div>
+    <div class="tier-label" data-i18n="tier1-label">PAF · One</div>
     <div class="divider"></div>
     <div class="tier-people">2.5M</div>
-    <div class="tier-sub">people needed</div>
+    <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 1</div>
-    <a class="btn"
+    <a class="btn" data-i18n="btn-1"
        href="https://agihome.gumroad.com/l/paf-1"
        target="_blank" rel="noopener">Donate $1</a>
   </div>
@@ -552,12 +843,12 @@ function toggleSound() {
   <!-- $10 -->
   <div class="tier">
     <div class="tier-price">$10</div>
-    <div class="tier-label">PAF · Ten</div>
+    <div class="tier-label" data-i18n="tier10-label">PAF · Ten</div>
     <div class="divider"></div>
     <div class="tier-people">250K</div>
-    <div class="tier-sub">people needed</div>
+    <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 10</div>
-    <a class="btn"
+    <a class="btn" data-i18n="btn-10"
        href="https://agihome.gumroad.com/l/paf-10"
        target="_blank" rel="noopener">Donate $10</a>
   </div>
@@ -565,12 +856,12 @@ function toggleSound() {
   <!-- $100 -->
   <div class="tier" style="border-color:rgba(240,180,41,.25)">
     <div class="tier-price">$100</div>
-    <div class="tier-label">PAF · Hundred</div>
+    <div class="tier-label" data-i18n="tier100-label">PAF · Hundred</div>
     <div class="divider"></div>
     <div class="tier-people">25K</div>
-    <div class="tier-sub">people needed</div>
+    <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 100</div>
-    <a class="btn"
+    <a class="btn" data-i18n="btn-100"
        href="https://agihome.gumroad.com/l/paf-100"
        target="_blank" rel="noopener">Donate $100</a>
   </div>
@@ -578,26 +869,26 @@ function toggleSound() {
   <!-- $1,000 -->
   <div class="tier" style="border-color:rgba(240,180,41,.5)">
     <div class="tier-price">$1K</div>
-    <div class="tier-label">PAF · Thousand</div>
+    <div class="tier-label" data-i18n="tier1000-label">PAF · Thousand</div>
     <div class="divider"></div>
     <div class="tier-people">2,500</div>
-    <div class="tier-sub">people needed</div>
+    <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 1,000</div>
-    <a class="btn"
+    <a class="btn" data-i18n="btn-1000"
        href="https://agihome.gumroad.com/l/paf-1000"
        target="_blank" rel="noopener">Donate $1,000</a>
   </div>
 
   <!-- $5,000 -->
   <div class="tier tier--core">
-    <div class="badge">Core Information</div>
+    <div class="badge" data-i18n="badge">Core Information</div>
     <div class="tier-price">$5K</div>
-    <div class="tier-label">PAF · Five Thousand</div>
+    <div class="tier-label" data-i18n="tier5000-label">PAF · Five Thousand</div>
     <div class="divider"></div>
     <div class="tier-people">500</div>
-    <div class="tier-sub">people needed</div>
+    <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 5,000</div>
-    <a class="btn"
+    <a class="btn" data-i18n="btn-5000"
        href="https://agihome.gumroad.com/l/paf-5000"
        target="_blank" rel="noopener">Donate $5,000</a>
   </div>
@@ -606,19 +897,20 @@ function toggleSound() {
 
 <!-- TOTAL -->
 <div class="total-block">
-  <p>Any tier fully funded</p>
+  <p data-i18n="total-label">Any tier fully funded</p>
   <strong>$2,500,000</strong>
-  <em>= complete mission funding</em>
+  <em data-i18n="total-eq">= complete mission funding</em>
 </div>
 
 <!-- LETTER NOTE -->
 <div class="letter-note">
-  <strong>Letter of Gratitude</strong><br>
-  After payment you receive a personalized thank-you letter<br>
-  in your language — RU · KZ · EN · ZH · AR · DE · FR · ES · TR · HI · JA · PT · ID
+  <strong data-i18n="letter-title">Letter of Gratitude</strong><br>
+  <span data-i18n="letter-body">After payment you receive a personalized thank-you letter in your language</span><br>
+  — RU · KZ · EN · ZH · AR · DE · FR · ES · TR · HI · JA · PT · ID
   <br><br>
   <a href="https://crowdfunding.sun-agi.com/gratitude.html"
      target="_blank"
+     data-i18n="letter-link"
      style="color:var(--gold);font-size:.82rem;text-decoration:none;border-bottom:1px solid rgba(240,180,41,.35)">
     Read the letter →
   </a>
