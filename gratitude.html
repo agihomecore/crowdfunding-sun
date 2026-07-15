@@ -315,6 +315,18 @@ function setLang(code, btn) {
   document.getElementById('letter-' + code).classList.add('active');
   btn.classList.add('active');
 }
+
+// Открыт по ссылке вида gratitude.html?lang=ru — сразу показать письмо на этом языке.
+// Без параметра (прямой заход, PDF-ссылка и т.п.) — остаётся английский по умолчанию, как раньше.
+document.addEventListener('DOMContentLoaded', function () {
+  const CODES = ['en','ru','kz','zh','es','fr','de','pt','ar','hi','tr','jp','id'];
+  const code = (new URLSearchParams(window.location.search).get('lang') || '').toLowerCase();
+  if (CODES.includes(code) && code !== 'en') {
+    const idx = CODES.indexOf(code);
+    const btn = document.querySelectorAll('.lang-btn')[idx];
+    if (btn) setLang(code, btn);
+  }
+});
 </script>
 </body>
 </html>
