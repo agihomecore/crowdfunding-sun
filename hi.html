@@ -302,6 +302,29 @@
       color: var(--muted);
       font-size: .85rem;
     }
+    .fill-stepper {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-size: .78rem;
+    }
+    .fill-stepper-label { color: var(--dim); }
+    .fill-stage {
+      padding: 2px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--dim);
+    }
+    .fill-stage.active {
+      border-color: #3fb950;
+      color: #3fb950;
+      background: rgba(63,185,80,.12);
+      font-weight: 600;
+    }
+    .fill-stage-sep { color: var(--border); }
 
     /* ── LETTER NOTE ── */
     .letter-note {
@@ -566,6 +589,10 @@ const T = {
     badge: "Core Information",
     'total-label': "Any tier fully funded",
     'total-eq': "= complete mission funding",
+    'fill-status-label': "Funding stage:",
+    'fill-stage-1': "Starting",
+    'fill-stage-2': "Midway",
+    'fill-stage-3': "Full",
     'quantity-note': "Want a different amount? Choose the quantity at checkout — e.g. 9 × $10 = $90.",
     'letter-title': "Letter of Gratitude",
     'letter-body': "After payment you receive a personalized thank-you letter in your language",
@@ -585,6 +612,10 @@ const T = {
     badge: "Ключевой уровень",
     'total-label': "Любой уровень — полностью",
     'total-eq': "= полное финансирование миссии",
+    'fill-status-label': "Процент заполнения:",
+    'fill-stage-1': "Начало",
+    'fill-stage-2': "Середина",
+    'fill-stage-3': "Полное",
     'quantity-note': "Хочешь другую сумму? Укажи количество на странице оплаты — например, 9 × $10 = $90.",
     'letter-title': "Письмо благодарности",
     'letter-body': "После оплаты вы получаете персональное письмо благодарности на вашем языке",
@@ -604,6 +635,10 @@ const T = {
     badge: "Негізгі деңгей",
     'total-label': "Кез келген деңгей толық",
     'total-eq': "= миссияны толық қаржыландыру",
+    'fill-status-label': "Жиналу деңгейі:",
+    'fill-stage-1': "Басталды",
+    'fill-stage-2': "Ортасы",
+    'fill-stage-3': "Толық",
     'quantity-note': "Басқа сома керек пе? Төлем бетінде санын көрсет — мысалы, 9 × $10 = $90.",
     'letter-title': "Алғыс хаты",
     'letter-body': "Төлемнен кейін өз тіліңізде жеке алғыс хат аласыз",
@@ -623,6 +658,10 @@ const T = {
     badge: "核心层级",
     'total-label': "任意层级完全资助",
     'total-eq': "= 完整使命资助",
+    'fill-status-label': "筹款进度：",
+    'fill-stage-1': "起步",
+    'fill-stage-2': "中期",
+    'fill-stage-3': "完成",
     'quantity-note': "想要其他金额？在结账页面选择数量——例如 9 × $10 = $90。",
     'letter-title': "感谢信",
     'letter-body': "付款后，您将收到以您的语言写成的个性化感谢信",
@@ -642,6 +681,10 @@ const T = {
     badge: "Información Central",
     'total-label': "Cualquier nivel financiado",
     'total-eq': "= financiamiento completo de la misión",
+    'fill-status-label': "Progreso de financiación:",
+    'fill-stage-1': "Inicio",
+    'fill-stage-2': "Mitad",
+    'fill-stage-3': "Completo",
     'quantity-note': "¿Quieres otra cantidad? Elige la cantidad en el pago — por ejemplo, 9 × $10 = $90.",
     'letter-title': "Carta de Gratitud",
     'letter-body': "Después del pago recibirás una carta de agradecimiento personalizada en tu idioma",
@@ -661,6 +704,10 @@ const T = {
     badge: "Information Centrale",
     'total-label': "N'importe quel niveau financé",
     'total-eq': "= financement complet de la mission",
+    'fill-status-label': "Progression du financement :",
+    'fill-stage-1': "Début",
+    'fill-stage-2': "Mi-parcours",
+    'fill-stage-3': "Complet",
     'quantity-note': "Vous voulez un autre montant ? Choisissez la quantité lors du paiement — par ex. 9 × $10 = $90.",
     'letter-title': "Lettre de Gratitude",
     'letter-body': "Après le paiement, vous recevez une lettre de remerciement personnalisée dans votre langue",
@@ -680,6 +727,10 @@ const T = {
     badge: "Kerninformation",
     'total-label': "Jede Stufe vollständig finanziert",
     'total-eq': "= vollständige Missionsfinanzierung",
+    'fill-status-label': "Finanzierungsfortschritt:",
+    'fill-stage-1': "Start",
+    'fill-stage-2': "Mitte",
+    'fill-stage-3': "Vollständig",
     'quantity-note': "Ein anderer Betrag gewünscht? Wähle die Menge beim Checkout — z. B. 9 × $10 = $90.",
     'letter-title': "Dankesbrief",
     'letter-body': "Nach der Zahlung erhalten Sie einen personalisierten Dankesbrief in Ihrer Sprache",
@@ -699,6 +750,10 @@ const T = {
     badge: "Informação Central",
     'total-label': "Qualquer nível financiado",
     'total-eq': "= financiamento completo da missão",
+    'fill-status-label': "Progresso do financiamento:",
+    'fill-stage-1': "Início",
+    'fill-stage-2': "Meio",
+    'fill-stage-3': "Completo",
     'quantity-note': "Quer outro valor? Escolha a quantidade no checkout — por ex. 9 × $10 = $90.",
     'letter-title': "Carta de Gratidão",
     'letter-body': "Após o pagamento você recebe uma carta de agradecimento personalizada no seu idioma",
@@ -718,6 +773,10 @@ const T = {
     badge: "معلومات أساسية",
     'total-label': "أي مستوى ممول بالكامل",
     'total-eq': "= تمويل كامل للمهمة",
+    'fill-status-label': "مرحلة التمويل:",
+    'fill-stage-1': "البداية",
+    'fill-stage-2': "المنتصف",
+    'fill-stage-3': "مكتمل",
     'quantity-note': "تريد مبلغًا مختلفًا؟ حدد الكمية عند الدفع — مثال: 9 × $10 = $90.",
     'letter-title': "رسالة شكر وامتنان",
     'letter-body': "بعد الدفع ستتلقى رسالة شكر شخصية بلغتك",
@@ -737,6 +796,10 @@ const T = {
     badge: "मुख्य जानकारी",
     'total-label': "कोई भी स्तर पूर्णतः वित्त पोषित",
     'total-eq': "= पूर्ण मिशन वित्त पोषण",
+    'fill-status-label': "फंडिंग की प्रगति:",
+    'fill-stage-1': "शुरुआत",
+    'fill-stage-2': "मध्य",
+    'fill-stage-3': "पूर्ण",
     'quantity-note': "अलग राशि चाहिए? भुगतान पृष्ठ पर मात्रा चुनें — उदाहरण: 9 × $10 = $90।",
     'letter-title': "कृतज्ञता पत्र",
     'letter-body': "भुगतान के बाद आपको आपकी भाषा में एक व्यक्तिगत धन्यवाद पत्र प्राप्त होगा",
@@ -756,6 +819,10 @@ const T = {
     badge: "Temel Bilgi",
     'total-label': "Herhangi bir seviye tamamen finanse",
     'total-eq': "= misyonun tam finansmanı",
+    'fill-status-label': "Fonlama aşaması:",
+    'fill-stage-1': "Başlangıç",
+    'fill-stage-2': "Orta",
+    'fill-stage-3': "Tam",
     'quantity-note': "Farklı bir tutar mı istiyorsun? Ödeme sayfasında miktarı seç — örneğin 9 × $10 = $90.",
     'letter-title': "Teşekkür Mektubu",
     'letter-body': "Ödeme sonrasında dilinizde kişiselleştirilmiş bir teşekkür mektubu alırsınız",
@@ -775,6 +842,10 @@ const T = {
     badge: "コア情報",
     'total-label': "いずれかのレベルが完全に資金調達",
     'total-eq': "= ミッション完全資金調達",
+    'fill-status-label': "資金調達の進捗：",
+    'fill-stage-1': "開始",
+    'fill-stage-2': "中間",
+    'fill-stage-3': "完了",
     'quantity-note': "別の金額にしたいですか？決済ページで数量を選んでください — 例：9 × $10 = $90。",
     'letter-title': "感謝の手紙",
     'letter-body': "お支払い後、あなたの言語でパーソナライズされたお礼の手紙が届きます",
@@ -794,6 +865,10 @@ const T = {
     badge: "Informasi Inti",
     'total-label': "Tingkat mana pun didanai penuh",
     'total-eq': "= pendanaan misi lengkap",
+    'fill-status-label': "Progres pendanaan:",
+    'fill-stage-1': "Awal",
+    'fill-stage-2': "Pertengahan",
+    'fill-stage-3': "Penuh",
     'quantity-note': "Ingin jumlah lain? Pilih kuantitas saat checkout — misalnya 9 × $10 = $90.",
     'letter-title': "Surat Terima Kasih",
     'letter-body': "Setelah pembayaran Anda menerima surat terima kasih personal dalam bahasa Anda",
@@ -984,6 +1059,14 @@ document.addEventListener('DOMContentLoaded', function initPage() {
   <p data-i18n="total-label">Any tier fully funded</p>
   <strong>$25,000,000</strong>
   <em data-i18n="total-eq">= complete mission funding</em>
+  <div class="fill-stepper">
+    <span class="fill-stepper-label" data-i18n="fill-status-label">Funding stage:</span>
+    <span class="fill-stage active" data-i18n="fill-stage-1">Starting</span>
+    <span class="fill-stage-sep">&middot;</span>
+    <span class="fill-stage" data-i18n="fill-stage-2">Midway</span>
+    <span class="fill-stage-sep">&middot;</span>
+    <span class="fill-stage" data-i18n="fill-stage-3">Full</span>
+  </div>
 </div>
 
 <!-- LETTER NOTE -->
