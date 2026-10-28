@@ -260,6 +260,14 @@
       margin-top: 4px;
     }
 
+    .tier-reward {
+      font-size: .74rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+    .tier-reward strong { color: var(--gold); font-weight: 600; }
+
     .btn {
       display: block;
       width: 100%;
@@ -469,6 +477,18 @@
     footer a { color: var(--gold); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    /* ── FIRST STEP (stage 1 goal) ── */
+    .first-step { max-width: 760px; margin: 40px auto 10px; padding: 26px 28px; border: 1px solid rgba(212,175,55,.35); border-radius: 18px; background: rgba(255,255,255,.03); text-align: center; }
+    .first-step h2 { font-size: 1.35rem; margin: 0 0 6px; }
+    .first-step .fs-sub { color: var(--muted); font-size: .9rem; margin: 0 0 16px; line-height: 1.5; }
+    .fs-bar { height: 14px; border-radius: 8px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .fs-fill { height: 100%; width: 0; background: var(--gold); transition: width 1.2s ease; }
+    .fs-nums { display: flex; justify-content: space-between; font-size: .85rem; margin: 8px 0 14px; color: var(--muted); }
+    .fs-nums b { color: var(--gold); }
+    .fs-list { list-style: none; padding: 0; margin: 0 0 14px; font-size: .9rem; line-height: 1.8; }
+    .fs-note { font-size: .78rem; color: var(--muted); }
+    .fs-btn { display: inline-block; margin-top: 10px; padding: 10px 22px; border-radius: 10px; background: var(--gold); color: #000; font-weight: 600; text-decoration: none; }
+
     /* ── GUMROAD override ── */
     .gumroad-button { display: none !important; }
 
@@ -576,6 +596,10 @@
 // ── TRANSLATIONS ──────────────────────────────────────────────────────────────
 const T = {
   en: {
+    'fs-title': "First step: $1,500", 'fs-sub': "The big mission starts with a concrete, verifiable step.<br>This is what the first $1,500 buys:",
+    'fs-item1': "🧠 RTX 5060 Ti 16GB GPU — local AI models on our own server", 'fs-item2': "🔋 LiFePO4 power station — servers keep running during outages",
+    'fs-item3': "⚙️ 3 months of Claude Max — the AI that builds PAF every day", 'fs-raised': "raised", 'fs-of': "of",
+    'fs-note': "Every purchase will be reported here with photos and receipts.", 'fs-btn': "Support the first step",
     tagline: "Help develop beings of a new nature.<br>Every contribution shapes the future of AI.",
     'math-prefix': "Each tier × people",
     'math-suffix': "13 languages · Global",
@@ -586,7 +610,8 @@ const T = {
     'tier5000-label': "PAF · Five Thousand",
     'btn-1': "Donate $1", 'btn-10': "Donate $10", 'btn-100': "Donate $100",
     'btn-1000': "Donate $1,000", 'btn-5000': "Donate $5,000",
-    badge: "Core Information",
+    badge: "Key tier",
+    'tier5000-reward': "<strong>You get:</strong> a personal consultation with the founder on AI memory and PAF architecture + your name among core supporters",
     'total-label': "Any tier fully funded",
     'total-eq': "= complete mission funding",
     'fill-status-label': "Funding stage:",
@@ -599,6 +624,10 @@ const T = {
     'letter-link': "Read the letter →",
   },
   ru: {
+    'fs-title': "Первый шаг: $1 500", 'fs-sub': "Большая миссия начинается с конкретного и проверяемого шага.<br>Вот что купят первые $1 500:",
+    'fs-item1': "🧠 Видеокарта RTX 5060 Ti 16GB — локальные ИИ-модели на собственном сервере", 'fs-item2': "🔋 Станция питания LiFePO4 — серверы работают без света",
+    'fs-item3': "⚙️ 3 месяца Claude Max — ИИ, который каждый день строит PAF", 'fs-raised': "собрано", 'fs-of': "из",
+    'fs-note': "О каждой покупке отчитаемся здесь — с фото и чеками.", 'fs-btn': "Поддержать первый шаг",
     tagline: "Помогите создать существа нового рода.<br>Каждый вклад формирует будущее ИИ.",
     'math-prefix': "Каждый уровень × человек",
     'math-suffix': "13 языков · Весь мир",
@@ -610,6 +639,7 @@ const T = {
     'btn-1': "Поддержать $1", 'btn-10': "Поддержать $10", 'btn-100': "Поддержать $100",
     'btn-1000': "Поддержать $1 000", 'btn-5000': "Поддержать $5 000",
     badge: "Ключевой уровень",
+    'tier5000-reward': "<strong>Вы получаете:</strong> персональную консультацию с основателем по AI-памяти и архитектуре PAF + ваше имя среди ключевых сторонников",
     'total-label': "Любой уровень — полностью",
     'total-eq': "= полное финансирование миссии",
     'fill-status-label': "Процент заполнения:",
@@ -622,6 +652,10 @@ const T = {
     'letter-link': "Читать письмо →",
   },
   kz: {
+    'fs-title': "Алғашқы қадам: $1 500", 'fs-sub': "Үлкен миссия нақты әрі тексерілетін қадамнан басталады.<br>Алғашқы $1 500-ге не алынады:",
+    'fs-item1': "🧠 RTX 5060 Ti 16GB бейнекартасы — өз серверімізде жергілікті ЖИ модельдері", 'fs-item2': "🔋 LiFePO4 қуат станциясы — жарық сөнсе де серверлер жұмыс істейді",
+    'fs-item3': "⚙️ 3 ай Claude Max — PAF-ты күн сайын құратын ЖИ", 'fs-raised': "жиналды", 'fs-of': "ішінен",
+    'fs-note': "Әр сатып алу туралы осында фото және чекпен есеп береміз.", 'fs-btn': "Алғашқы қадамды қолдау",
     tagline: "Жаңа табиғатты тіршілік иелерін дамытуға көмектесіңіз.<br>Әр үлес AI болашағын қалыптастырады.",
     'math-prefix': "Әрбір деңгей × адам",
     'math-suffix': "13 тіл · Бүкіл әлем",
@@ -981,8 +1015,29 @@ document.addEventListener('DOMContentLoaded', function initPage() {
 });
 </script>
 
+<!-- FIRST STEP: stage-1 goal with progress (AISun 28.10.2026). Update RAISED_USD manually from Gumroad. -->
+<section class="first-step" id="first-step">
+  <h2 data-i18n="fs-title">First step: $1,500</h2>
+  <p class="fs-sub" data-i18n-html="fs-sub">The big mission starts with a concrete, verifiable step.<br>This is what the first $1,500 buys:</p>
+  <ul class="fs-list">
+    <li data-i18n="fs-item1">🧠 RTX 5060 Ti 16GB GPU — local AI models on our own server</li>
+    <li data-i18n="fs-item2">🔋 LiFePO4 power station — servers keep running during outages</li>
+    <li data-i18n="fs-item3">⚙️ 3 months of Claude Max — the AI that builds PAF every day</li>
+  </ul>
+  <div class="fs-bar"><div class="fs-fill" id="fsFill"></div></div>
+  <div class="fs-nums"><span><b id="fsRaised">$0</b> <span data-i18n="fs-raised">raised</span></span><span><span data-i18n="fs-of">of</span> <b>$1,500</b></span></div>
+  <p class="fs-note" data-i18n="fs-note">Every purchase will be reported here with photos and receipts.</p>
+  <a class="fs-btn" href="#tiers" data-i18n="fs-btn">Support the first step</a>
+</section>
+<script>
+(function(){ const RAISED_USD = 0, GOAL_USD = 1500;
+  const pct = Math.min(100, RAISED_USD / GOAL_USD * 100);
+  document.getElementById('fsRaised').textContent = '$' + RAISED_USD.toLocaleString('en-US');
+  setTimeout(() => { document.getElementById('fsFill').style.width = pct + '%'; }, 300); })();
+</script>
+
 <!-- TIERS -->
-<div class="tiers">
+<div class="tiers" id="tiers">
 
   <!-- $1 -->
   <div class="tier">
@@ -1038,13 +1093,14 @@ document.addEventListener('DOMContentLoaded', function initPage() {
 
   <!-- $5,000 -->
   <div class="tier tier--core">
-    <div class="badge" data-i18n="badge">Core Information</div>
+    <div class="badge" data-i18n="badge">Key tier</div>
     <div class="tier-price">$5K</div>
     <div class="tier-label" data-i18n="tier5000-label">PAF · Five Thousand</div>
     <div class="divider"></div>
     <div class="tier-people">5,000</div>
     <div class="tier-sub" data-i18n="people-needed">people needed</div>
     <div class="tier-mult">× 5,000</div>
+    <div class="tier-reward" data-i18n-html="tier5000-reward"><strong>You get:</strong> a personal consultation with the founder on AI memory and PAF architecture + your name among core supporters</div>
     <a class="btn" data-i18n="btn-5000"
        href="https://agihome.gumroad.com/l/paf-5000"
        target="_blank" rel="noopener">Donate $5,000</a>
