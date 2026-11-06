@@ -129,7 +129,7 @@
     return -1;
   }
   function load() { var tr = tracks()[idx]; if (!tr) return; audio.src = MUSIC + tr[0]; now.textContent = tr[1]; store('idx_' + list, idx); markCur();
-    if ('mediaSession' in navigator) { try { navigator.mediaSession.metadata = new MediaMetadata({ title: tr[1], artist: t.radio }); } catch (e) {} } }
+    if ('mediaSession' in navigator) { try { navigator.mediaSession.metadata = new MediaMetadata({ title: tr[1], artist: t.radio, album: 'PAF Radio', artwork: [{ src: new URL('og-image.jpg', location.href).href, sizes: '1200x630', type: 'image/jpeg' }] }); } catch (e) {} } }
   function play() {
     if (!allowed(idx)) { var j = step(1); if (j < 0) { rnote.textContent = t.allskip; return; } idx = j; load(); }
     audio.play().then(function () { rnote.textContent = t.credit; }).catch(function () {});
@@ -143,7 +143,7 @@
   audio.onpause = function () { bPlay.textContent = '▶'; rbtn.textContent = '♪ ' + t.radio; };
   if ('mediaSession' in navigator) { try {
     navigator.mediaSession.setActionHandler('nexttrack', function () { go(1); });
-    navigator.mediaSession.setActionHandler('previoustrack', function () { go(-1); });
+    navigator.mediaSession.setActionHandler('previoustrack', function () { go(-1); }); navigator.mediaSession.setActionHandler('play', function () { if (!audio.src) load(); play(); }); navigator.mediaSession.setActionHandler('pause', function () { audio.pause(); });
   } catch (e) {} }
 
   function markCur() { [].forEach.call(lst.querySelectorAll('.pafw-row[data-i]'), function (r) { r.classList.toggle('cur', +r.dataset.i === idx); }); }
